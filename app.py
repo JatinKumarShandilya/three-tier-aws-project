@@ -19,6 +19,9 @@ def get_db_connection():
 
     return connection
 
+@app.route("/health")
+def health():
+    return "OK", 200
 
 @app.route("/")
 def home():
@@ -109,4 +112,4 @@ print("MySQL connection successful!")
 connection.close()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
